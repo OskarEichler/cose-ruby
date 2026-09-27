@@ -53,7 +53,7 @@ module COSE
 
     def self.cbor_decode(data)
       CBOR.decode(data)
-    rescue CBOR::MalformedFormatError, CBOR::StackError, EOFError, FloatDomainError, RegexpError, TypeError,
+    rescue CBOR::UnpackError, EOFError, FloatDomainError, RegexpError, TypeError,
            URI::InvalidURIError
       raise COSE::MalformedKeyError, "Malformed CBOR key input"
     end
